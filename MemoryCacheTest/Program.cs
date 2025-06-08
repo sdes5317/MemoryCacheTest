@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Runtime.Caching;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 
@@ -29,8 +28,8 @@ namespace MemoryCacheTest
 
         static void TestRuntimeMemoryCache(int itemCount)
         {
-            var cache = MemoryCache.Default;
-            var policy = new CacheItemPolicy
+            var cache = System.Runtime.Caching.MemoryCache.Default;
+            var policy = new System.Runtime.Caching.CacheItemPolicy
             {
                 SlidingExpiration = TimeSpan.FromHours(1)
             };
